@@ -1,0 +1,29 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "APEX DIARY", root_url, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+      <li><%= link_to "ユーザー", '#' %></li>
+      <li class="dropdown">
+        <a href="#" id="account" class="dropdown-toggle">
+          Account <b class="caret"></b>
+        </a>
+        <ul id="dropdown-menu" class="dropdown-menu">
+        <%= link_to "プロフィール", legends_path(current_legends) %>
+
+
+          <li class="divider"></li>
+          <li>
+            <%= link_to "ログアウト", logout_path,
+                                   data: { "turbo-method": :delete } %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li><%= link_to "ログイン", login_path %></li>
+    <% end %>
+  </ul>
+</nav>
+</div>
+</header>
